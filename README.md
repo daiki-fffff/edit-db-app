@@ -9,16 +9,15 @@
 - has_many :messages
 - has_many :posts
 
-## messageテーブル
+## Groupテーブル
 |Column|Type|Options|
-|-------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|------|----|-------|
+|groupname|string|null: false|
+|adduser|string|null: false|
 
 ### Association
-- belongs_to :post
-- belongs_to :user
+- has_many :user
+- has_many :message
 
 ## Group_usersテーブル
 |Column|Type|Options|
@@ -30,12 +29,11 @@
 - belongs_to :group
 - belongs_to :user
 
-# postsテーブル
+## messageテーブル
 |Column|Type|Options|
 |-------|----|-------|
 |text|text|null: false|
-|image|string|
+|image|string|null: false|
 
 ### Association
-- has_many :messages
-- has_many :users
+- has_many :user
